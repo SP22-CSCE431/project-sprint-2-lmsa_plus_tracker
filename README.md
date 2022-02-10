@@ -1,6 +1,6 @@
 # LMSA_Beyond
 
-Making a web-app for the Latino Medical Student Association Pre-med Latino Undergraduate Society
+Making a web-app for the Latino Medical Student Association
 
 Group Members:
 - Daniel Ortiz-Chaves : Scrum-master
