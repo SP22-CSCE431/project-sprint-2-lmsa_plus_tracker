@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  get '/', to: 'home#index'
+
+  resources :home
   resources :poin_events
   resources :referrals
   resources :events
