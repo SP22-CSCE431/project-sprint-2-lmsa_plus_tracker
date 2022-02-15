@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  get '/', to: 'home#index'
+  get '/', to: 'users#index'
 
   resources :home
   resources :poin_events
