@@ -21,7 +21,7 @@ RSpec.describe "/users", type: :request do
     #skip("Add a hash of attributes valid for your model")
     user_id: 1111,
     major: "something",
-    admin: false,
+    admin: 'False',
     email: "fname.lname@tamu.edu",
     first_name: "fname",
     last_name: "lname"
@@ -31,9 +31,9 @@ RSpec.describe "/users", type: :request do
     #skip("Add a hash of attributes invalid for your model")
     {
     user_id: nil,
-    major: "something",
-    admin: false,
-    email: "fname.lname@tamu.edu",
+    major: nil,
+    admin: nil,
+    email: nil,
     first_name: nil,
     last_name: nil
     }
@@ -103,10 +103,10 @@ RSpec.describe "/users", type: :request do
       let(:new_attributes) {
         #skip("Add a hash of attributes valid for your model")
         {
-          #user_id: nil,
+          user_id: '111',
           major: "something else",
-          admin: true,
-          #email: "fname.lname@tamu.edu",
+          admin: 'True',
+          email: "fname.lname@tamu.edu",
           first_name: "fname2",
           last_name: "lname2"
         }

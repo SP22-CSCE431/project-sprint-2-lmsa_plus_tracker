@@ -18,11 +18,23 @@ RSpec.describe "/event_hists", type: :request do
   # EventHist. As you add validations to EventHist, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
+    #skip("Add a hash of attributes valid for your model")
+    {
+      event_id: 1,
+      user_id: 1,
+      sign_in: 'True',
+      point_recv: 5
+    }
   }
 
   let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
+    #skip("Add a hash of attributes invalid for your model")
+    {
+      event_id: nil,
+      user_id: nil,
+      sign_in: nil,
+      point_recv: nil
+    }
   }
 
   describe "GET /index" do

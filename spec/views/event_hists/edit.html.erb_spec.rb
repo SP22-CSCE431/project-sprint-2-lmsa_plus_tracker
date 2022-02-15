@@ -5,7 +5,7 @@ RSpec.describe "event_hists/edit", type: :view do
     @event_hist = assign(:event_hist, EventHist.create!(
       event_id: 1,
       user_id: 1,
-      sign_in: false,
+      sign_in: 'False',
       point_recv: 1
     ))
   end

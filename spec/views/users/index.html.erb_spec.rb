@@ -6,7 +6,7 @@ RSpec.describe "users/index", type: :view do
       User.create!(
         user_id: 2,
         major: "Major",
-        admin: false,
+        admin: 'False',
         email: "Email",
         first_name: "First Name",
         last_name: "Last Name"
@@ -14,7 +14,7 @@ RSpec.describe "users/index", type: :view do
       User.create!(
         user_id: 2,
         major: "Major",
-        admin: false,
+        admin: 'False',
         email: "Email",
         first_name: "First Name",
         last_name: "Last Name"
@@ -26,7 +26,7 @@ RSpec.describe "users/index", type: :view do
     render
     assert_select "tr>td", text: 2.to_s, count: 2
     assert_select "tr>td", text: "Major".to_s, count: 2
-    assert_select "tr>td", text: false.to_s, count: 2
+    assert_select "tr>td", text: 'False'.to_s, count: 2
     assert_select "tr>td", text: "Email".to_s, count: 2
     assert_select "tr>td", text: "First Name".to_s, count: 2
     assert_select "tr>td", text: "Last Name".to_s, count: 2
