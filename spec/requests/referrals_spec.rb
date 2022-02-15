@@ -12,69 +12,68 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/referrals", type: :request do
-  
+RSpec.describe '/referrals', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # Referral. As you add validations to Referral, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    skip("Add a hash of attributes valid for your model")
-  }
+  let(:valid_attributes) do
+    skip('Add a hash of attributes valid for your model')
+  end
 
-  let(:invalid_attributes) {
-    skip("Add a hash of attributes invalid for your model")
-  }
+  let(:invalid_attributes) do
+    skip('Add a hash of attributes invalid for your model')
+  end
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       Referral.create! valid_attributes
       get referrals_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       referral = Referral.create! valid_attributes
       get referral_url(referral)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_referral_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       referral = Referral.create! valid_attributes
       get edit_referral_url(referral)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new Referral" do
-        expect {
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new Referral' do
+        expect do
           post referrals_url, params: { referral: valid_attributes }
-        }.to change(Referral, :count).by(1)
+        end.to change(Referral, :count).by(1)
       end
 
-      it "redirects to the created referral" do
+      it 'redirects to the created referral' do
         post referrals_url, params: { referral: valid_attributes }
         expect(response).to redirect_to(referral_url(Referral.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new Referral" do
-        expect {
+    context 'with invalid parameters' do
+      it 'does not create a new Referral' do
+        expect do
           post referrals_url, params: { referral: invalid_attributes }
-        }.to change(Referral, :count).by(0)
+        end.to change(Referral, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
@@ -84,20 +83,20 @@ RSpec.describe "/referrals", type: :request do
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
+      let(:new_attributes) do
+        skip('Add a hash of attributes valid for your model')
+      end
 
-      it "updates the requested referral" do
+      it 'updates the requested referral' do
         referral = Referral.create! valid_attributes
         patch referral_url(referral), params: { referral: new_attributes }
         referral.reload
-        skip("Add assertions for updated state")
+        skip('Add assertions for updated state')
       end
 
-      it "redirects to the referral" do
+      it 'redirects to the referral' do
         referral = Referral.create! valid_attributes
         patch referral_url(referral), params: { referral: new_attributes }
         referral.reload
@@ -105,7 +104,7 @@ RSpec.describe "/referrals", type: :request do
       end
     end
 
-    context "with invalid parameters" do
+    context 'with invalid parameters' do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         referral = Referral.create! valid_attributes
         patch referral_url(referral), params: { referral: invalid_attributes }
@@ -114,15 +113,15 @@ RSpec.describe "/referrals", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested referral" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested referral' do
       referral = Referral.create! valid_attributes
-      expect {
+      expect do
         delete referral_url(referral)
-      }.to change(Referral, :count).by(-1)
+      end.to change(Referral, :count).by(-1)
     end
 
-    it "redirects to the referrals list" do
+    it 'redirects to the referrals list' do
       referral = Referral.create! valid_attributes
       delete referral_url(referral)
       expect(response).to redirect_to(referrals_url)

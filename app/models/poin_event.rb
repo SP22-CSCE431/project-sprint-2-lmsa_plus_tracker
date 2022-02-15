@@ -1,4 +1,4 @@
 class PoinEvent < ApplicationRecord
-    has_one :user
-    has_one :event
+  has_one :user
+  has_one :event
 end

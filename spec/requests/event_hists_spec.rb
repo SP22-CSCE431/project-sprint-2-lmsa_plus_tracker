@@ -12,81 +12,80 @@ require 'rails_helper'
 # of tools you can use to make these specs even more expressive, but we're
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
-RSpec.describe "/event_hists", type: :request do
-  
+RSpec.describe '/event_hists', type: :request do
   # This should return the minimal set of attributes required to create a valid
   # EventHist. As you add validations to EventHist, be sure to
   # adjust the attributes here as well.
-  let(:valid_attributes) {
-    #skip("Add a hash of attributes valid for your model")
+  let(:valid_attributes) do
+    # skip("Add a hash of attributes valid for your model")
     {
       event_id: 1,
       user_id: 1,
       sign_in: 'True',
       point_recv: 5
     }
-  }
+  end
 
-  let(:invalid_attributes) {
-    #skip("Add a hash of attributes invalid for your model")
+  let(:invalid_attributes) do
+    # skip("Add a hash of attributes invalid for your model")
     {
       event_id: nil,
       user_id: nil,
       sign_in: nil,
       point_recv: nil
     }
-  }
+  end
 
-  describe "GET /index" do
-    it "renders a successful response" do
+  describe 'GET /index' do
+    it 'renders a successful response' do
       EventHist.create! valid_attributes
       get event_hists_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /show" do
-    it "renders a successful response" do
+  describe 'GET /show' do
+    it 'renders a successful response' do
       event_hist = EventHist.create! valid_attributes
       get event_hist_url(event_hist)
       expect(response).to be_successful
     end
   end
 
-  describe "GET /new" do
-    it "renders a successful response" do
+  describe 'GET /new' do
+    it 'renders a successful response' do
       get new_event_hist_url
       expect(response).to be_successful
     end
   end
 
-  describe "GET /edit" do
-    it "renders a successful response" do
+  describe 'GET /edit' do
+    it 'renders a successful response' do
       event_hist = EventHist.create! valid_attributes
       get edit_event_hist_url(event_hist)
       expect(response).to be_successful
     end
   end
 
-  describe "POST /create" do
-    context "with valid parameters" do
-      it "creates a new EventHist" do
-        expect {
+  describe 'POST /create' do
+    context 'with valid parameters' do
+      it 'creates a new EventHist' do
+        expect do
           post event_hists_url, params: { event_hist: valid_attributes }
-        }.to change(EventHist, :count).by(1)
+        end.to change(EventHist, :count).by(1)
       end
 
-      it "redirects to the created event_hist" do
+      it 'redirects to the created event_hist' do
         post event_hists_url, params: { event_hist: valid_attributes }
         expect(response).to redirect_to(event_hist_url(EventHist.last))
       end
     end
 
-    context "with invalid parameters" do
-      it "does not create a new EventHist" do
-        expect {
+    context 'with invalid parameters' do
+      it 'does not create a new EventHist' do
+        expect do
           post event_hists_url, params: { event_hist: invalid_attributes }
-        }.to change(EventHist, :count).by(0)
+        end.to change(EventHist, :count).by(0)
       end
 
       it "renders a successful response (i.e. to display the 'new' template)" do
@@ -96,20 +95,20 @@ RSpec.describe "/event_hists", type: :request do
     end
   end
 
-  describe "PATCH /update" do
-    context "with valid parameters" do
-      let(:new_attributes) {
-        skip("Add a hash of attributes valid for your model")
-      }
+  describe 'PATCH /update' do
+    context 'with valid parameters' do
+      let(:new_attributes) do
+        skip('Add a hash of attributes valid for your model')
+      end
 
-      it "updates the requested event_hist" do
+      it 'updates the requested event_hist' do
         event_hist = EventHist.create! valid_attributes
         patch event_hist_url(event_hist), params: { event_hist: new_attributes }
         event_hist.reload
-        skip("Add assertions for updated state")
+        skip('Add assertions for updated state')
       end
 
-      it "redirects to the event_hist" do
+      it 'redirects to the event_hist' do
         event_hist = EventHist.create! valid_attributes
         patch event_hist_url(event_hist), params: { event_hist: new_attributes }
         event_hist.reload
@@ -117,7 +116,7 @@ RSpec.describe "/event_hists", type: :request do
       end
     end
 
-    context "with invalid parameters" do
+    context 'with invalid parameters' do
       it "renders a successful response (i.e. to display the 'edit' template)" do
         event_hist = EventHist.create! valid_attributes
         patch event_hist_url(event_hist), params: { event_hist: invalid_attributes }
@@ -126,15 +125,15 @@ RSpec.describe "/event_hists", type: :request do
     end
   end
 
-  describe "DELETE /destroy" do
-    it "destroys the requested event_hist" do
+  describe 'DELETE /destroy' do
+    it 'destroys the requested event_hist' do
       event_hist = EventHist.create! valid_attributes
-      expect {
+      expect do
         delete event_hist_url(event_hist)
-      }.to change(EventHist, :count).by(-1)
+      end.to change(EventHist, :count).by(-1)
     end
 
-    it "redirects to the event_hists list" do
+    it 'redirects to the event_hists list' do
       event_hist = EventHist.create! valid_attributes
       delete event_hist_url(event_hist)
       expect(response).to redirect_to(event_hists_url)

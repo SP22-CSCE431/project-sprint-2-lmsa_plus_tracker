@@ -1,3 +1,3 @@
 class Event < ApplicationRecord
-    has_many :event_hists
+  has_many :event_hists
 end
