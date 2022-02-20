@@ -8,4 +8,5 @@ class User < ApplicationRecord
   validates :email, presence: true
   validates :first_name, presence: true
   validates :last_name, presence: true
+  devise :omniauthable, omniauth_providers: [:google_oauth2]
 end
