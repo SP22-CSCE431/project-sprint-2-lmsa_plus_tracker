@@ -1,0 +1,13 @@
+<h1>My Event History</h1>
+<tbody>
+    <% @event_hists.each do |event_hist| %>
+      <tr>
+        <td><%= event_hist.event_id %></td>
+        <td><%= event_hist.user_id %></td>
+        <td><%= event_hist.sign_in %></td>
+        <td><%= event_hist.point_recv %></td>
+        <td><%= link_to 'Show', event_hist %></td>
+        <br>
+      </tr>
+    <% end %>
+  </tbody>
