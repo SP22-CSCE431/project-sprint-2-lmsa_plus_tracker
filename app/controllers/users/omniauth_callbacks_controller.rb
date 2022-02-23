@@ -29,7 +29,8 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       uid: auth.uid,
       email: auth.info.email,
       first_name: auth.info.first_name,
-      last_name: auth.info.last_name,
+      last_name: auth.info.first_name,
+      full_name: auth.info.full_name,
       avatar_url: auth.info.image
     }
   end
