@@ -9,8 +9,21 @@ class User < ApplicationRecord
   #validates :email, presence: true
   #validates :first_name, presence: true
   #validates :last_name, presence: true
-  def self.from_google(email:, first_name:, last_name:, uid:, avatar_url:)
+
+  # def first_name
+  #   self.full_name.blank? ? "" : self.full_name.split(" ")[0]
+  # end
+
+  # def last_name
+  #   self.full_name.blank? ? "" : self.full_name.split(" ")[1]
+  # end
+  
+  def self.from_google(email:, first_name:, last_name:, full_name:, uid:, avatar_url:)
     return nil unless email =~ /@gmail.com || @tamu.edu\z/
+    # find_or_create_by(email: email)
+
+
+    puts first_name
     create_with(uid: uid, first_name: first_name, last_name: last_name, admin: false, avatar_url: avatar_url).find_or_create_by!(email: email)
   end
 end
