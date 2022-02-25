@@ -33,7 +33,6 @@ gem 'devise'
 gem 'omniauth', '~>1.9.1'
 gem 'omniauth-google-oauth2'
 gem 'rexml'
-gem 'rubocop'
 gem 'bootstrap', '~> 5.1.3'
 gem 'jquery-rails'
 
@@ -42,6 +41,11 @@ group :development, :test do
   gem 'brakeman'
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
   gem 'rspec-rails'
+  gem 'rubocop'
+  gem 'rubocop-performance'
+  gem 'rubocop-rails'
+  gem 'rubocop-rspec' 
+
 end
 
 group :development do
