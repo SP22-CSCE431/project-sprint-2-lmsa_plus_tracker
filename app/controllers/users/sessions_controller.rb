@@ -4,6 +4,10 @@ class Users::SessionsController < Devise::SessionsController
     end
   
     def after_sign_in_path_for(resource_or_scope)
-      stored_location_for(resource_or_scope) || root_path
+      if current_user.admin == true
+        stored_location_for(resource_or_scope) || admin_root_path
+      else
+        stored_location_for(resource_or_scope) || root_path
     end
   end
+end

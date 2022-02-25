@@ -19,7 +19,11 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def after_sign_in_path_for(resource_or_scope)
-    stored_location_for(resource_or_scope) || root_path
+    if current_user.admin == true
+      stored_location_for(resource_or_scope) || admin_root_path
+    else
+      stored_location_for(resource_or_scope) || root_path
+    end
   end
 
   private
@@ -29,7 +33,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
       uid: auth.uid,
       email: auth.info.email,
       first_name: auth.info.first_name,
-      last_name: auth.info.first_name,
+      last_name: auth.info.last_name,
       full_name: auth.info.full_name,
       avatar_url: auth.info.image
     }

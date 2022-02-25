@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   get 'myhistory/index'
   root to: 'home#index'
+  get '/home/adminDash' => "home#adminDash", :as => :admin_root
     devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
     devise_scope :user do
       get 'users/sign_in', to: 'users/sessions#new', as: :new_user_session
