@@ -1,0 +1,22 @@
+<%= form_with(model: @user) do |f| %>
+  <div class="field">
+    <%= f.label :ismember%>
+    <%= f.number_field :ismember %>
+  </div>
+
+  <div class="field">
+    <%= f.label :birthdate %>
+    <%= f.date_field :birthdate %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :bio%>
+    <%= f.text_field :bio %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Sign Up"%>
+  </div>
+<% end %>
+
+
