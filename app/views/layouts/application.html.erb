@@ -14,7 +14,8 @@
   </head>
 
   <body>
-    <%= render "home/header" if user_signed_in? %>
+    <%= render "home/adminHeader" if user_signed_in? and current_user.admin==true %>
+    <%= render "home/header" if user_signed_in? and current_user.admin==false%>
     <% if flash.any? %>
       <% flash.each do |key, value| -%>
         <section class="flash flash__<%= key %>"><%= value.html_safe %></section>
