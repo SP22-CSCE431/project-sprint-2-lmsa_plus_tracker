@@ -4,7 +4,8 @@ Rails.application.routes.draw do
   get '/home/adminDash' => "home#adminDash", :as => :admin_root
     devise_for :users, controllers: { omniauth_callbacks: 'users/omniauth_callbacks' }
     devise_scope :user do
-      get 'users/edit', to: 'users/sessions#edit'
+      get 'users/edit', to: 'users/sessions#edit', as: :edit_user_session
+      patch '/users/edit', to: 'users#update'
       get 'users/sign_in', to: 'users/sessions#new', as: :new_user_session
       get 'users/sign_out', to: 'users/sessions#destroy', as: :destroy_user_session
   end

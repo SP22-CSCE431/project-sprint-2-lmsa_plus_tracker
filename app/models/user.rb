@@ -3,7 +3,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :omniauthable, omniauth_providers: [:google_oauth2]
   has_many :event_hists
-  has_many :point_events
+  has_many :poin_events
   has_many :referrals
   #validates :admin, presence: true
   #validates :email, presence: true
@@ -22,8 +22,10 @@ class User < ApplicationRecord
     return nil unless email =~ /@gmail.com || @tamu.edu\z/
     # find_or_create_by(email: email)
 
-
-    puts first_name
     create_with(uid: uid, first_name: first_name, last_name: last_name, admin: false, avatar_url: avatar_url).find_or_create_by!(email: email)
+  end
+
+  def sum_points
+    poin_events.where("user_id = ?", id).sum(:balance)
   end
 end
