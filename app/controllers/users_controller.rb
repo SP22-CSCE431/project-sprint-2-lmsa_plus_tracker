@@ -7,7 +7,14 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1 or /users/1.json
-  def show; end
+  def show; 
+    user = User.find(params[:id])
+    if user.admin == true
+      redirect_to :admin_root
+    else
+      redirect_to :root
+    end
+  end
 
   # GET /users/new
   def new
@@ -16,9 +23,6 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit;  end
-
-  # POST /users/edit
-  def update;  end
 
   # POST /users or /users.json
   def create
@@ -68,6 +72,6 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.require(:user).permit(:user_id, :major, :admin, :email, :first_name, :last_name)
+    params.permit(:id, :major, :admin, :email, :first_name, :last_name, :bio, :birthdate, :ismember, :major)
   end
 end

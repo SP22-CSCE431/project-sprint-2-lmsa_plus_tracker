@@ -19,8 +19,9 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   end
 
   def after_sign_in_path_for(resource_or_scope)
+    current_user.update(signInCount: (current_user.signInCount+1))
 
-    if current_user.present?
+    if current_user.signInCount == 1
       stored_location_for(resource_or_scope) || edit_user_session_path
     elsif current_user.admin == true
       stored_location_for(resource_or_scope) || admin_root_path

@@ -1,4 +1,9 @@
 <%= form_with(model: @user) do |f| %>
+<div class="field">
+    <%= f.label :id%>
+    <%= f.number_field :id %>
+  </div>
+
   <div class="field">
     <%= f.label :ismember%>
     <%= f.number_field :ismember %>

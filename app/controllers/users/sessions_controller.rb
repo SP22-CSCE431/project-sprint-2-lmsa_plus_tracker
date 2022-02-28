@@ -4,8 +4,9 @@ class Users::SessionsController < Devise::SessionsController
     end
   
     def after_sign_in_path_for(resource_or_scope)
-
-      if current_user.present?
+      users.update(signInCount: (signInCount+1))
+  
+      if current_user.signInCount == 1
         stored_location_for(resource_or_scope) || edit_user_session_path
       elsif current_user.admin == true
         stored_location_for(resource_or_scope) || admin_root_path
@@ -14,7 +15,4 @@ class Users::SessionsController < Devise::SessionsController
       end
     end
 
-    def post(path, **args)
-
-    end 
 end
