@@ -21,10 +21,10 @@ RSpec.describe '/users', type: :request do
       # skip("Add a hash of attributes valid for your model")
       user_id: 1111,
       major: 'something',
-      admin: 'False',
-      email: 'fname.lname@tamu.edu',
-      first_name: 'fname',
-      last_name: 'lname'
+      admin: 'false',
+      email: 'mjmueller@tamu.edu',
+      first_name: 'Matthew',
+      last_name: 'Mueller'
     }
   end
 
