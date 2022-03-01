@@ -13,16 +13,24 @@ require 'rails_helper'
 # sticking to rails and rspec-rails APIs to keep things simple and stable.
 
 RSpec.describe '/event_hists', type: :request do
+
+  before do
+    Rails.application.env_config["devise.mapping"] = Devise.mappings[:user] # If using Devise
+    Rails.application.env_config["omniauth.auth"] = OmniAuth.config.mock_auth[:google_oauth2]
+    get user_google_oauth2_omniauth_authorize_path
+    get user_google_oauth2_omniauth_callback_url
+  end
+
   # This should return the minimal set of attributes required to create a valid
   # EventHist. As you add validations to EventHist, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
     # skip("Add a hash of attributes valid for your model")
     {
-      event_id: 1,
-      user_id: 1,
-      sign_in: 'True',
-      point_recv: 5
+      event_id: 7776898,
+      user_id:  7776899,
+      sign_in: true,
+      point_recv: 221
     }
   end
 
@@ -88,39 +96,41 @@ RSpec.describe '/event_hists', type: :request do
         end.to change(EventHist, :count).by(0)
       end
 
-      it "renders a successful response (i.e. to display the 'new' template)" do
-        post event_hists_url, params: { event_hist: invalid_attributes }
-        expect(response).to be_successful
-      end
     end
   end
 
   describe 'PATCH /update' do
     context 'with valid parameters' do
       let(:new_attributes) do
-        skip('Add a hash of attributes valid for your model')
+        #skip('Add a hash of attributes valid for your model')
+        {
+          event_id: 333489,
+          user_id:  333488,
+          sign_in: true,
+          point_recv: 331
+        }
       end
 
       it 'updates the requested event_hist' do
         event_hist = EventHist.create! valid_attributes
-        patch event_hist_url(event_hist), params: { event_hist: new_attributes }
+        patch event_hist_url(event_hist), params: { event_hist: new_attributes }, as: :json
         event_hist.reload
-        skip('Add assertions for updated state')
+        #raise response.body
+        #skip('Add assertions for updated state')
+        expect(response.body).to include(new_attributes[:event_id].to_s)
+        expect(response.body).to include(new_attributes[:user_id].to_s)
+        expect(response.body).to include(new_attributes[:point_recv].to_s)
+        #expect(response.body).to include('3')
       end
 
-      it 'redirects to the event_hist' do
-        event_hist = EventHist.create! valid_attributes
-        patch event_hist_url(event_hist), params: { event_hist: new_attributes }
-        event_hist.reload
-        expect(response).to redirect_to(event_hist_url(event_hist))
-      end
     end
 
     context 'with invalid parameters' do
-      it "renders a successful response (i.e. to display the 'edit' template)" do
+      it "does not update event_hist values" do
         event_hist = EventHist.create! valid_attributes
-        patch event_hist_url(event_hist), params: { event_hist: invalid_attributes }
-        expect(response).to be_successful
+        patch event_hist_url(event_hist), params: { event_hist: invalid_attributes }, as: :json
+        #raise response.body
+        expect(response).not_to be_successful
       end
     end
   end
