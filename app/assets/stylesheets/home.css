@@ -24,7 +24,7 @@ body{
     border-radius: 30px;
     overflow: hidden;
     background-color: white;
-    box-shadow: rgba(0, 0, 0, 0.5) 0px 3px 20px
+    box-shadow: rgba(256, 256, 256, 0.5) 0px 3px 20px
 }
 
 .box-1 img {
