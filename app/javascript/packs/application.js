@@ -6,10 +6,6 @@
 import Rails from "@rails/ujs"
 import Turbolinks from "turbolinks"
 import * as ActiveStorage from "@rails/activestorage"
-<<<<<<< HEAD
-=======
-// import { Calendar} from "fullCalendar"
->>>>>>> e136d9b0858bf2e6d8fbb8a355d94f269c4883ed
 import "channels"
 
 require("@popperjs/core")
@@ -19,7 +15,6 @@ require("../stylesheets/application")
 import { Calendar } from '@fullcalendar/core'
 import dayGridPlugin from '@fullcalendar/daygrid'
 
-<<<<<<< HEAD
 Rails.start();
 Turbolinks.start();
 ActiveStorage.start();
@@ -42,16 +37,3 @@ document.addEventListener('turbolinks:load', function() {
     calendar.render();
   
 });
-=======
-// function eventCalendar() {
-//     return $('.calendar').fullCalendar({ });
-// };
-// function clearCalendar() {
-//     $('.calendar').fullCalendar('delete'); 
-//     $('.calendar').html('');
-// };
-$(document).on('turbolinks:load', function(){
-    eventCalendar();  
-});
-$(document).on('turbolinks:before-cache', clearCalendar);
->>>>>>> e136d9b0858bf2e6d8fbb8a355d94f269c4883ed
