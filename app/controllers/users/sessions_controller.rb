@@ -15,6 +15,10 @@ class Users::SessionsController < Devise::SessionsController
       end
     end
 
+    def edit;  
+      puts("hecker")
+    end
+
     def update
 
       respond_to do |format|
@@ -22,8 +26,10 @@ class Users::SessionsController < Devise::SessionsController
           format.html { redirect_to user_url(current_user), notice: 'User was successfully updated.' }
           format.json { render :show, status: :ok, location: current_user }
         else
-          format.html { render :edit, status: :unprocessable_entity }
-          format.json { render json: current_user.errors, status: :unprocessable_entity }
+          # format.html { render :edit, status: :unprocessable_entity }
+          # format.json { render json: current_user.errors, status: :unprocessable_entity }
+          render 'edit'
+          puts("Dummy")
         end
       end
     end

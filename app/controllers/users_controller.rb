@@ -22,7 +22,9 @@ class UsersController < ApplicationController
   end
 
   # GET /users/1/edit
-  def edit;  end
+  def edit;  
+    puts("hecker")
+  end
 
   # POST /users or /users.json
   def create
@@ -47,6 +49,7 @@ class UsersController < ApplicationController
         format.html { redirect_to user_url(@user), notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
+        puts("pupper")
         format.html { render :edit, status: :unprocessable_entity }
         format.json { render json: @user.errors, status: :unprocessable_entity }
       end
@@ -72,6 +75,6 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def user_params
-    params.permit(:id, :major, :admin, :email, :first_name, :last_name, :bio, :birthdate, :ismember, :major)
+    params.permit(:id, :major, :admin, :email, :first_name, :last_name, :bio, :birthdate, :major)
   end
 end

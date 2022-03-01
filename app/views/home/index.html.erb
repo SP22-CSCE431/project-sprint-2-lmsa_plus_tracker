@@ -35,6 +35,19 @@
             <%= current_user.bioConfirmation %>
         </p>
 
+         <% if current_user.major.present? %>
+            <p>
+                <strong>User Major: </strong>
+                <%= current_user.major %>
+            </p>
+        <% end %>
+
+        <a href="<%=edit_user_session_path%>">
+            <button class="btn btn-outline-secondary text-dark" type="button">Edit My Info</button>
+        </a>
+
+
+
       </div>
     </div>
 
