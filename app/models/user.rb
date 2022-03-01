@@ -36,4 +36,13 @@ class User < ApplicationRecord
         "No Birthdate Given"
       end
   end
+
+  def bioConfirmation
+    if bio.present?
+      bio
+    else
+      "No Bio Given"
+    end
+  end
+
 end
