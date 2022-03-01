@@ -1,10 +1,42 @@
 <p id="notice"><%= notice %></p>
 
+
+<div class="container">
+
+  <div class="row">
+    <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+
+      <%= render 'form', event: @event%>
+
+    </div>
+
+    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+
+      <%= render 'form', event: @event%>
+
+    </div>
+
+    <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+
+      <%= render 'form', event: @event, method: :delete%>
+
+    </div>
+  </div>
+
+</div>
+
+<div id="calendar"></div>
+
+
+
 <h1>Events</h1>
 <br>
-Welcome to the Events index. This page is to record events. To record a new event, click on "New Event". To see the event's details, click show, and to edit it click edit. To move around the website, click "Navigation"
-<br>
-<br>
+Welcome to the Events index. 
+This page is to record events. 
+To record a new event, click on "New Event". 
+To see the event's details, click show, and to edit it click edit. To move around the website, click "Navigation"
+</br>
+<br></br>
 <table>
   <thead>
     <tr>
