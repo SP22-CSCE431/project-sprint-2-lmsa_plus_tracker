@@ -33,4 +33,5 @@ class Users::SessionsController < Devise::SessionsController
     def user_params
       params.permit(:id, :major, :admin, :email, :first_name, :last_name, :bio, :birthdate, :ismember, :major)
     end
+    
 end
