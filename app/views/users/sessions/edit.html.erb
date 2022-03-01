@@ -1,8 +1,10 @@
-<%= form_with(model: @user) do |f| %>
-<div class="field">
-    <%= f.label :id%>
-    <%= f.number_field :id %>
-  </div>
+<%# <%=render layout: false%> %>
+
+<%= form_with(model: @user, local: true) do |f| %>
+  <%# <div class="field"> %>
+    <%# <%= f.label :email%> %>
+    <%# <%= f.number_field :email%> %>
+  <%# </div> %>
 
   <div class="field">
     <%= f.label :ismember%>

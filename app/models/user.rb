@@ -28,4 +28,21 @@ class User < ApplicationRecord
   def sum_points
     poin_events.where("user_id = ?", id).sum(:balance)
   end
+    
+  def bod
+      if birthdate.present?
+        birthdate.strftime("%m/%d/%Y")
+      else
+        "No Birthdate Given"
+      end
+  end
+
+  def bioConfirmation
+    if bio.present?
+      bio
+    else
+      "No Bio Given"
+    end
+  end
+
 end
