@@ -7,12 +7,21 @@ Welcome to the Point Events index. This page is to record points awarded to user
 <br>
 
 <p> My Points: <%= current_user.sum_points %> </p>
-<br>
-  <tbody>
-    <% User.all.each do |that_user| %>
-      <tr>
-        <td><%= that_user.sum_points %></td>
-      </tr>
-    <% end %>
-  </tbody>
-<br>
+<table>
+    <thead>
+        <tr>
+          <th>User</th>
+          <th>Points</th>
+        </tr>
+      </thead>
+    <br>
+      <tbody>
+        <% User.all.sort{|a,b| b.sum_points <=> a.sum_points}.each do |that_user| %>
+          <tr>
+            <td><%= that_user.id %></td>
+            <td><%= that_user.sum_points %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    <br>
+</table>

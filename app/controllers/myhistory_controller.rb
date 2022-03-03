@@ -1,7 +1,6 @@
 class MyhistoryController < ApplicationController
   def index
     @event_hists = EventHist.all
-    @users = User.all
   end
 
   # GET /event_hists/1 or /event_hists/1.json
