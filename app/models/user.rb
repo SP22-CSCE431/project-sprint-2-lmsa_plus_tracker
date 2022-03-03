@@ -26,7 +26,7 @@ class User < ApplicationRecord
   end
 
   def sum_points
-    poin_events.where("user_id = ?", id).sum(:balance)
+    poin_events.where("user_id = ?", id).sum(:balance) + event_hists.where("user_id = ?", id).sum(:point_recv)
   end
     
   def bod
