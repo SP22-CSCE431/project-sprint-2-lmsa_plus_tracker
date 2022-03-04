@@ -29,7 +29,6 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
       <th>Balance</th>
       <th>Date</th>
       <th>Description</th>
@@ -43,15 +42,12 @@
   <p> Points: <%= current_user.sum_points %> </p>
     <% @poin_events.each do |poin_event| %>
       <tr>
-        <td><%= poin_event.user_id %></td>
-        <td><%= poin_event.balance %></td>
-        <td><%= poin_event.date %></td>
-        <td><%= poin_event.description %></td>
-        <td><%= poin_event.admin_award_id %></td>
-        <td><%= poin_event.hours_attend %></td>
-        <td><%= link_to 'Show', poin_event %></td>
-        <td><%= link_to 'Edit', edit_poin_event_path(poin_event) %></td>
-        <td><%= link_to 'Destroy', poin_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= poin_event.balance if poin_event.user_id == current_user.id %></td>
+        <td><%= poin_event.date if poin_event.user_id == current_user.id %></td>
+        <td><%= poin_event.description if poin_event.user_id == current_user.id %></td>
+        <td><%= poin_event.admin_award_id if poin_event.user_id == current_user.id %></td>
+        <td><%= poin_event.hours_attend if poin_event.user_id == current_user.id %></td>
+        <td><%= link_to 'Show', poin_event if poin_event.user_id == current_user.id %></td>
       </tr>
     <% end %>
   </tbody>
