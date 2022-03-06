@@ -2,7 +2,9 @@
 
 <div class="container">
 
-  <%= link_to "New Event", new_event_path, {class: "btn btn-secondary text-light", type: "button"} %>
+  <% if current_user.admin==true %>
+    <%= link_to "New Event", new_event_path, {class: "btn btn-secondary text-light", type: "button"} %>
+  <% end %>
 
   <br>
   <br>

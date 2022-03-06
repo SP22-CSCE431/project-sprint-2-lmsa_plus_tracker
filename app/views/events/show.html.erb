@@ -75,6 +75,7 @@
 
 <%= link_to 'Edit', edit_event_path(@event), class:"btn btn-secondary text-light" %>
 <%= link_to 'Destroy', @event, method: :delete, data: { confirm: 'Are you sure?' }, class:"btn btn-secondary text-light" %>
+<%= link_to 'Sign In', new_event_hist_path(@event), class:"btn btn-secondary text-light" %>
 <%= link_to 'Back', events_path, class:"btn btn-secondary text-light" %>
 
 </div>
