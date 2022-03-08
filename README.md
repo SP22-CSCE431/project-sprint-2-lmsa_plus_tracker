@@ -13,7 +13,7 @@ Making a web-app for the Latino Medical Student Association
 - Matthew Mueller
 - Zeling Li
 
-Jira: https://door-keys.atlassian.net/jira/software/projects/G53/boards/4/backlog
+Jira: https://lmsaplustracker.atlassian.net/jira/software/projects/G53/boards/4/backlog
 
 ## Requirements ##
 
@@ -37,7 +37,7 @@ This code has been run and tested on:
 
 Download this code repository by using git:
 
- `git clone https://github.com/your_github_here.git`
+ `git clone https://github.com/EndlessDebugger/LMSA_Beyond.git`
 
 
 ## Tests ##
@@ -50,7 +50,7 @@ An RSpec test suite is available and can be ran using:
 
 Run the following code in Powershell if using windows or the terminal using Linux/Mac
 
-  `cd your_github_here`
+  `cd local_app`
 
   `docker run --rm -it --volume "$(pwd):/rails_app" -e DATABASE_USER=test_app -e DATABASE_PASSWORD=test_password -p 3000:3000 dmartinez05/ruby_rails_postgresql:latest`
 
@@ -68,6 +68,7 @@ The application can be seen using a browser and navigating to http://localhost:3
 ## Environmental Variables/Files ##
 
 ** Add instructions/description if your application requires it.
+
 
 ## Deployment ##
 
