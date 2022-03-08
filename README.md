@@ -67,20 +67,15 @@ The application can be seen using a browser and navigating to http://localhost:3
 
 ## Environmental Variables/Files ##
 
-** Add instructions/description if your application requires it.
+This porject will require a .env file with the google secerets in order have the google authencation working.
+Contact the current collobators for more information.
 
 
 ## Deployment ##
-
-** Add instructions about how to deploy to Heroku
+In order for the App be deployed to heroku make an app on heroku and connect it to the repo, then add the site to the google cloud console.
 
 
 ## CI/CD ##
 
-TBD
-
-## Support ##
-
-Admins looking for support should first look at the application help page.
-Users looking for help seek out assistance from the customer.
+This repo has Rubocop and rspec testing intergated into the github workflows. This has a Heroku pipeline attached to continulsy deploy verfied changes from the test branch.
 
